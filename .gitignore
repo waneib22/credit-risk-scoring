@@ -1,0 +1,27 @@
+data/raw/*.txt
+data/raw/*.zip
+data/raw/*.csv
+*.parquet
+*.pkl
+__pycache__/
+.env
+.DS_Store
+
+# Kedro
+logs/
+conf/local/**
+!conf/local/.gitkeep
+.telemetry
+
+# Packaging
+*.egg-info/
+src/*.egg-info/
+.ipynb_checkpoints/
+
+# Artefacts régénérables (modèles, index)
+models/*.faiss
+models/*.json
+
+# Config locale et captures d'écran
+.claude/
+notebooks/image_*.png

@@ -1,0 +1,39 @@
+# Data Catalog — déclare les datasets persistés du pipeline.
+# Les datasets non déclarés (df_orig, df_perf, target, loans_joined) sont gardés
+# en mémoire pendant le run (MemoryDataset par défaut).
+
+loans_features:
+  type: pandas.ParquetDataset
+  filepath: data/loans_features.parquet
+
+X_train:
+  type: pandas.ParquetDataset
+  filepath: data/X_train.parquet
+
+X_test:
+  type: pandas.ParquetDataset
+  filepath: data/X_test.parquet
+
+y_train:
+  type: pandas.ParquetDataset
+  filepath: data/y_train.parquet
+
+y_test:
+  type: pandas.ParquetDataset
+  filepath: data/y_test.parquet
+
+preprocessor:
+  type: pickle.PickleDataset
+  filepath: models/preprocessor.pkl
+
+logreg_model:
+  type: pickle.PickleDataset
+  filepath: models/logreg.pkl
+
+xgb_model:
+  type: pickle.PickleDataset
+  filepath: models/xgb_model.pkl
+
+metrics:
+  type: json.JSONDataset
+  filepath: models/metrics.json

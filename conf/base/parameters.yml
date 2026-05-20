@@ -1,0 +1,25 @@
+# Paramètres du pipeline (tunables, séparés du code)
+
+data_processing:
+  raw_dir: data/raw
+  # Définition de la cible
+  delinquency_threshold: 3            # 90+ jours de retard
+  default_zero_balance_codes: ["03", "09"]  # 03 = foreclosure, 09 = REO
+  # Split + encodage
+  test_size: 0.2
+  random_state: 42
+  smoothing: 10.0                     # lissage du target encoding
+  high_cardinality: ["property_state", "msa"]
+  low_cardinality: ["channel", "occupancy_status", "property_type",
+                    "loan_purpose", "first_time_homebuyer_flag"]
+
+data_science:
+  random_state: 42
+  val_size: 0.2                       # split interne train/val pour early stopping
+  logreg_max_iter: 1000
+  # XGBoost
+  n_estimators: 1000
+  learning_rate: 0.05
+  max_depth: 4
+  min_child_weight: 10
+  early_stopping_rounds: 50
